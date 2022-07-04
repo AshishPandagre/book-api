@@ -34,10 +34,21 @@ let books = [{
 }];
 
 
+const paginate = (data, page, limit) => {
+    const start = limit * (page-1);
+    const end = limit * page;
+    if(data.length <= start || start < 0 || end <= 0 || limit <= 0) return [];
+    return data.slice(start, end);
+}
+
 
 // returns a list of all the existing books,
 app.get('/', function(req, res) {
-    res.render('pages/index', {books});
+    // console.log(req.query);
+    const {page = 1, limit = 5} = req.query;
+    console.log('page = ', page, 'limit = ', limit);
+    console.log(paginate(books, page, limit));
+    res.render('pages/index', {books : paginate(books, page, limit)});
 });
 
 

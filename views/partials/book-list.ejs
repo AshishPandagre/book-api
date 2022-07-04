@@ -14,13 +14,6 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td data-title="isbn">25</td>
-                        <td data-title="author">A test book !!</td>
-                        <td data-title="publisher">test productions</td>
-                        <td data-title="pages">69</td>
-                        <td data-title="date">2014-12-14</td>
-                    </tr>
                     <% books.forEach(function(book) { %>
                         <tr>
                             <td data-title="isbn"><%= book.isbn %> </td>
@@ -33,5 +26,7 @@
                 </tbody>
             </table>
         </div>
+        <button class="btn btn-primary" type="submit">Previous</button>
+        <button class="btn btn-primary" style="float: right" type="submit">Next</button>
     </div>
 </div>
