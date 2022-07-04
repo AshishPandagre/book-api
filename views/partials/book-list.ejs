@@ -2,6 +2,17 @@
 <div class="col-sm-12 col-md-6 border">
     <div class="container-fluid">
         <h3 class="my-4">DATA ENTRY</h3>
+        <small>
+            INFO : 
+            page: <%= page %>
+            limit: <%= limit %> . <br>
+            these values can be changed from the url. <br>
+            example - http://localhost:3000/?page=1&limit=3   
+            <br><br>
+        </small>
+        <% if (books.length == 0) { %>
+            <h4>looks like this is the end !</h4> 
+        <% } %>
         <div class="table-responsive" id="no-more-tables">
             <table class="table bg-white">
                 <thead class="bg-dark text-light">
@@ -26,7 +37,7 @@
                 </tbody>
             </table>
         </div>
-        <button class="btn btn-primary" type="submit">Previous</button>
-        <button class="btn btn-primary" style="float: right" type="submit">Next</button>
+        <a class="btn btn-primary" href="?page=<%= prev %>">Previous</a>
+        <a class="btn btn-primary" style="float: right" href="?page=<%= next %>">Next</a>
     </div>
 </div>

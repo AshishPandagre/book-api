@@ -45,10 +45,17 @@ const paginate = (data, page, limit) => {
 // returns a list of all the existing books,
 app.get('/', function(req, res) {
     // console.log(req.query);
-    const {page = 1, limit = 5} = req.query;
+    let {page = 1, limit = 5} = req.query;
+    page = parseInt(page); limit = parseInt(limit);
     console.log('page = ', page, 'limit = ', limit);
     console.log(paginate(books, page, limit));
-    res.render('pages/index', {books : paginate(books, page, limit)});
+    res.render('pages/index', {
+        books : paginate(books, page, limit),
+        next: parseInt(page)+1,
+        prev: parseInt(page)-1,
+        page: page,
+        limit: limit
+    });
 });
 
 
