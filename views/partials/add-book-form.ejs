@@ -1,0 +1,80 @@
+
+<div class="col-sm-12 col-md-6 border">
+    <div class="container p-4">
+        <form class="row g-3 needs-validation" method="POST" action="/book">
+            <div class="col-12">    
+                <label for="isbn" class="form-label">ISBN number</label>
+                <input type="number" name="isbn" class="form-control" id="isbn" placeholder="Enter the ISBN number"
+                    required>
+                <div class="invalid-feedback">
+                    Please provide a valid ISBN number
+                </div>
+            </div>
+            <div class="col-12">
+                <label for="author" class="form-label">AUTHOR name</label>
+
+                <input type="text" name="author" class="form-control" id="author" placeholder="Enter the Author name"
+                    required>
+                <div class="invalid-feedback">
+                    Please enter a valid name
+                </div>
+            </div>
+            <div class="col-12">
+                <label for="title" class="form-label">Title</label>
+
+                <input type="text" name="title" class="form-control" id="title" placeholder="Enter the Title"
+                    required>
+                <div class="invalid-feedback">
+                    Please enter a valid title
+                </div>
+            </div>
+            <div class="col-12">
+                <label for="publisher" class="form-label">Publisher name</label>
+                <div class="input-group has-validation">
+                    <input type="text" name="publisher" class="form-control" id="publisher" placeholder="Enter the username"
+                        required>
+                    <div class="invalid-feedback">
+                        Please choose a username.
+                    </div>
+                </div>
+            </div>
+            <div class="col-12">
+                <label for="numOfPages" class="form-label">Number of pages</label>
+                <input type="number" name="numOfPages" class="form-control" id="numOfPages"
+                    placeholder="Enter the number of pages" required>
+                <div class="invalid-feedback">
+                    Please provide valid numbers.
+                </div>
+            </div>
+            <div class="col-12">
+                <label for="publish_date" class="form-label">Publish Date</label>
+                <input type="date" name="publish_date" class="form-control" id="publish_date"
+                    placeholder="Enter the publish date" required>
+                <div class="invalid-feedback">
+                    Please provide a valid date.
+                </div>
+            </div>
+            <div class="col-12">
+                <button class="btn btn-primary" type="submit">Submit form</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+    (function () {
+        'use strict'
+        var forms = document.querySelectorAll('.needs-validation')
+        Array.prototype.slice.call(forms)
+            .forEach(function (form) {
+                form.addEventListener('submit', function (event) {
+                    console.log(form.data);
+                    // if (!form.checkValidity()) {
+                        event.preventDefault()
+                        event.stopPropagation()
+                    // }
+                    form.classList.add('was-validated')
+                }, false)
+            })
+    })()
+</script>

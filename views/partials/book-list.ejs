@@ -1,0 +1,37 @@
+
+<div class="col-sm-12 col-md-6 border">
+    <div class="container-fluid">
+        <h3 class="my-4">DATA ENTRY</h3>
+        <div class="table-responsive" id="no-more-tables">
+            <table class="table bg-white">
+                <thead class="bg-dark text-light">
+                    <tr>
+                        <th>ISBN</th>
+                        <th>AUTHOR</th>
+                        <th>Publisher</th>
+                        <th>Pages</th>
+                        <th>Publish Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td data-title="isbn">25</td>
+                        <td data-title="author">A test book !!</td>
+                        <td data-title="publisher">test productions</td>
+                        <td data-title="pages">69</td>
+                        <td data-title="date">2014-12-14</td>
+                    </tr>
+                    <% books.forEach(function(book) { %>
+                        <tr>
+                            <td data-title="isbn"><%= book.isbn %> </td>
+                            <td data-title="author"><%= book.author %> </td>
+                            <td data-title="publisher"><%= book.publisher %> </td>
+                            <td data-title="pages"><%= book.numOfPages %> </td>
+                            <td data-title="date"><%= book.publish_date %> </td>
+                        </tr>
+                    <% }) %>  
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
