@@ -37,11 +37,14 @@ app.get('/', function(req, res) {
 // adds a book to the dictionary.
 app.post('/book', function(req, res) {
     const book = req.body;
+    
+    let {page = 1, limit = 5} = req.query;
+    page = parseInt(page); limit = parseInt(limit);
 
     console.log(book);
     books.push(book);
 
-    res.redirect('/');
+    res.redirect(`/?page=${page}&limi=${limit}`);
 })
 
 
